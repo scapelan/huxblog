@@ -7,6 +7,7 @@
  * ========================================================== */
 
 // SW Version Upgrade Ref: <https://youtu.be/Gb9uI67tqV0>
+const baseUrl = '/huxblog'
 
 function handleRegistration(registration){
   console.log('Service Worker Registered. ', registration)
@@ -35,7 +36,7 @@ if(navigator.serviceWorker){
   // For security reasons, a service worker can only control the pages
   // that are in the same directory level or below it. That's why we put sw.js at ROOT level.
   navigator.serviceWorker
-    .register("{{ '/sw.js' | prepend: site.baseurl }}")
+    .register(`${baseUrl}/sw.js`)
     .then((registration) => handleRegistration(registration))
     .catch((error) => {console.log('ServiceWorker registration failed: ', error)})
 
